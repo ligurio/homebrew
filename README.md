@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/ligurio/homebrew-postgrespro.svg?branch=master)](https://travis-ci.org/ligurio/homebrew-postgrespro)
-
 This is the [Homebrew](https://brew.sh) repository for software that I use.
 
 To use this tap, run:
