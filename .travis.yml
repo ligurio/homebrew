@@ -1,36 +1,7 @@
 language: objective-c
-rvm: system
 before_install:
-  - brew update
-  - brew list | grep -q -w postgresql && brew unlink postgresql
-install:
-  - mkdir -p $(brew --repo)/Library/Taps/travis
-  - ln -s $PWD $(brew --repo)/Library/Taps/travis/homebrew-testtap
-  - brew tap --repair
-  - gem install rubocop --user-install
-env:
-  global:
-    - SGML_CATALOG_FILES=/usr/local/etc/sgml/catalog
-  matrix:
-    - PACKAGE=postgrespro-9.5
-    - PACKAGE=postgrespro-9.6
-    - PACKAGE=postgresql-common install_opt='--HEAD'
+  - brew update >/dev/null
 script:
-  - brew install --build-bottle -v $install_opt $PACKAGE
-  - brew postinstall $PACKAGE
-  - case $install_opt in *devel* | *HEAD*) ;; *) brew bottle --rb --no-revision --root-url="https://github.com/${TRAVIS_REPO_SLUG}/releases/download/${TRAVIS_TAG}" $PACKAGE;; esac
-  - case $install_opt in *devel* | *HEAD*) ;; *) brew audit --strict $PACKAGE;; esac
-  - brew test $PACKAGE
-
-deploy:
-  provider: releases
-  api_key:
-    secure: ZaEnTmGfIGHZSCoxpR6xiAVbrnwfe1CKpgDD5d+fmjLw45BMO8q3mqsgYaVr6FY6JM3A43QiZ0lnJb+2MnhR5F45u3QjnmA/iwyd0K6JDr36iRRHQG55nCQpXexYvwQbAk329m3/MnxwPP4QeXEyOjoZy9pAkMpgv79biOQGMDD5mjm6NHaJYNQAnUixF69xRxTbG8j82MFbXmTMVU2YL1jCZUWHdFbY28DxseBMRo/1B8rxSiAvfSlz86/AqFdBTuc2EJxG3aHCFx/m3BWx9kdSP/r/+8zWqRJjtfLmF63z4s+JM7sTAvkRK9LPWsSLmU0yJM7HVuI21pcUsn/aG/qki3QzTfZYVS0TYnJrok+up39F4ILFUxN0k2LcWyUoyuISYbqWXwetP03gLcNFkXPe8A21MUFwCKYQv6cLKqilAKBHUVRa1ciz6iBED0EQh/wKn1OxsxjSWXEk5tozqjvyuhhWgudUWWbJJG76y6KDTOV3zf7LdQHPxCZhDGZQk+z+OqvSQ1W3KQcGz9HopMD6nJeQwBeqXD4ypPBfIDH1OwlCUlLVZ3rRGQUrTqPSwd/RVlZ3pjBfoi25HeRa27kVITrQA44qTuvrRYSwQoR0vtvNCYHfnXEckd8qBdXmOMpDslJ5IYbfCwf75/yZNpGE1WCsb1+rUJgS29P0/U4=
-  file_glob: true
-  file:
-    - "*.bottle.rb"
-    - "*.bottle.tar.gz"
-  skip_cleanup: true
-  on:
-    repo: ligurio/homebrew-postgrespro
-    tags: true
+  - brew audit ./Formula/*.rb
+  - brew install -v ./Formula/*.rb
+  - brew test ./Formula/*.rb
