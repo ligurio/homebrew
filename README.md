@@ -16,4 +16,5 @@ brew uninstall testres
 The following formulae are available:
 
 - [testres](https://github.com/ligurio/testres): hyperfast web frontend for software testing results
-- [postgrespro](https://github.com/postgrespro/postgrespro): PostgrePro (feature-rich PostgreSQL fork)
+- [postgrespro](https://github.com/postgrespro/postgrespro): PostgresPro (feature-rich PostgreSQL fork)
+- [packetdrill](https://github.com/nplab/packetdrill): feature-rich [packetdrill](https://github.com/google/packetdrill) fork
