@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ligurio/homebrew-repo.svg?branch=master)](https://travis-ci.org/ligurio/homebrew-repo)
+
 This is the [Homebrew](https://brew.sh) repository for software that I use.
 
 To use this tap, run:
