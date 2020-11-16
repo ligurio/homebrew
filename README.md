@@ -17,3 +17,4 @@ The following formulae are available:
 
 - [testres](https://github.com/ligurio/testres): hyperfast web frontend for software testing results
 - [postgrespro](https://github.com/postgrespro/postgrespro): PostgrePro (feature-rich PostgreSQL fork)
+- [unreliablefs](https://github.com/ligurio/unreliablefs): A FUSE-based fault injection filesystem
