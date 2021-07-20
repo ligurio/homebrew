@@ -1,4 +1,4 @@
-class UnreliableFS < Formula
+class Unreliablefs < Formula
   version "0.2.0"
   desc "A FUSE-based fault injection filesystem"
   homepage "https://github.com/ligurio/unreliablefs"
