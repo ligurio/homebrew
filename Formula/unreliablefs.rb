@@ -1,9 +1,11 @@
 class UnreliableFS < Formula
-  version "0.0.5"
+  version "0.2.0"
   desc "A FUSE-based fault injection filesystem"
   homepage "https://github.com/ligurio/unreliablefs"
-  url ""
-  sha256 "a86050fb98e9ecd7e8421e7cc1a225ce59b77d6264947cb8cdbc7699c142ace0"
+  url "https://github.com/ligurio/unreliablefs/archive/refs/tags/0.2.0.tar.gz"
+  sha256 "51ea2bdd0ef2b9d4e0960e244ab34d50d8f01fc8f2acb34b13d58ab9208b03f5"
+  license "MIT"
+  head "https://github.com/ligurio/unreliablefs"
 
   def install
     system "cmake ."
