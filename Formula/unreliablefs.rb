@@ -7,6 +7,12 @@ class Unreliablefs < Formula
   license "MIT"
   head "https://github.com/ligurio/unreliablefs"
 
+  depends_on "cmake" => :build
+
+  on_linux do
+    depends_on "libfuse"
+  end
+
   def install
     system "cmake ."
     system "make -j"
@@ -14,6 +20,8 @@ class Unreliablefs < Formula
   end
 
   test do
-    system bin/"unreliablefs", "-v"
+    system "#{bin}/unreliablefs", "-h"
+
+    assert_match "unreliablefs", shell_output("#{bin}/unreliablefs 2>&1", 10)
   end
 end
