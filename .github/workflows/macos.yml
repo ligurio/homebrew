@@ -1,0 +1,18 @@
+on: [push]
+
+jobs:
+  test:
+    name: Testing homebrew formulas
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
+      - run: brew update >/dev/null
+
+      - run: brew audit ./Formula/*.rb
+
+      - run: brew install -v ./Formula/*.rb
+
+      - run: brew test ./Formula/*.rb
