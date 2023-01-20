@@ -14,8 +14,8 @@ class Unreliablefs < Formula
   end
 
   def install
-    system "cmake ."
-    system "make -j"
+    system "cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug"
+    system "cmake --build build --parallel"
     bin.install "unreliablefs"
   end
 
